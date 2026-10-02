@@ -1,0 +1,24 @@
+#pragma once
+
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <omp.h>
+
+class JacobiSolver
+{
+private:
+    std::vector<std::vector<double>> A;
+    std::vector<double> b;
+    std::vector<double> x;
+    int n;
+
+public:
+    JacobiSolver(const std::vector<std::vector<double>>& _A, const std::vector<double>& _b);
+
+    bool solve(double tolerance, int maxIterations);
+
+    const std::vector<double>& getSolution() const;
+
+    void printSolution() const;
+};
